@@ -13,7 +13,7 @@ fi
 echo "Installing basic/necessary packages.."
 yum update -y
 pip3 install --upgrade awscli
-yum install -y unzip jq curl vim
+yum install -y unzip jq curl vim git
 
 echo "Installing Terraform.."
 curl ${TFLINK} -s -o "terraform${TFVERS}.zip"
@@ -25,11 +25,10 @@ echo "Installing Terraform enterprise cli.."
 git clone git@github.com:hashicorp/tfe-cli.git
 cd tfe-cli/bin
 echo "export PATH=$PWD:\$PATH" >> ~/.bash_profile
-sudo ln -s $PWD/tfe /usr/local/bin/tfe
+ln -s $PWD/tfe /usr/local/bin/tfe
 
-#setup aliases for github so a simple "gp" will add, commit, and push
-#your changes to GitHub
-echo "Setup GitHub shortcuts.."
+#setup aliases for github and terraform commands to save my typing energy
+echo "Setup GitHub and Terraform shortcuts.."
 cat <<EOF > ~/.bash_profile
 gitpush() {
     git add .
@@ -37,8 +36,34 @@ gitpush() {
     git push
 }
 alias gp=gitpush
+
+########### Terraform plan
+tplan() {
+    terraform plan
+}
+alias tp=tplan
+
+########### Terraform format
+tformat() {
+  terraform format
+}
+alias tf=tformat
+
+########## Terraform apply auto
+tapprove() {
+  terraform apply -auto-approve
+}
+taa=tapprove
+
+########## Terraform destroy auto
+tdestroy() {
+  terraform destroy -auto-approve
+}
+tda=tdestroy
 EOF
-source ~./bash_profile
+
+#execute changes asap without a reload
+source ~/.bash_profile
 
 #Clean up and clear out cache of yum repository
 yum clean all
