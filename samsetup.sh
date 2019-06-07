@@ -22,7 +22,7 @@ mv terraform /usr/local/bin
 rm -rf terraform${TFVERS}.zip
 
 echo "Installing Terraform enterprise cli.."
-git clone git@github.com:hashicorp/tfe-cli.git
+git clone https://github.com/hashicorp/tfe-cli.git
 cd tfe-cli/bin
 echo "export PATH=$PWD:\$PATH" >> ~/.bash_profile
 ln -s $PWD/tfe /usr/local/bin/tfe
