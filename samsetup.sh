@@ -3,13 +3,13 @@ clear
 TFLINK=https://releases.hashicorp.com/terraform/0.12.1/terraform_0.12.1_linux_amd64.zip
 TFVERS=12
 #root only!
+echo "Checking to see if you are root"
 if [ "$(whoami)" != 'root' ]; then
 	echo "You are not root, please f off!"
 	exit 1
 else
     	echo "Ok, you are root! Proceeding.."
 fi
-
 echo "Installing basic/necessary packages.."
 yum update -y
 pip3 install --upgrade awscli
