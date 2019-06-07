@@ -12,8 +12,8 @@ else
 fi
 echo "Installing basic/necessary packages.."
 yum update -y
+yum install -y unzip jq curl vim git python
 pip3 install --upgrade awscli
-yum install -y unzip jq curl vim git
 
 echo "Installing Terraform.."
 curl ${TFLINK} -s -o "terraform${TFVERS}.zip"
