@@ -13,6 +13,6 @@ Shell script in this repo sets up an empty (linux) server according to my prefer
 - terraform
 - terraform enterpise 
 
-Aliases:  
+#### Aliases:  
 - github 
 - terraform 
