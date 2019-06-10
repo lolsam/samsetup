@@ -1,6 +1,6 @@
 ### samsetup.sh 
 
-Shell script in this repo sets up an empty server according to my preferences 
+Shell script in this repo sets up an empty (linux) server according to my preferences.
 
 #### Packages installed: 
 - unzip
