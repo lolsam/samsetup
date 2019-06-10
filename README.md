@@ -12,3 +12,7 @@ Shell script in this repo sets up an empty server according to my preferences
 - awscli 
 - terraform
 - terraform enterpise 
+
+Aliases:  
+- github 
+- terraform 
