@@ -13,13 +13,12 @@ else
 fi
 echo "Installing basic/necessary packages.."
 yum update -y
-yum install -y unzip jq curl vim git python
-pip3 install --upgrade awscli
+yum install -y unzip jq curl vim git python pip3
+pip install --upgrade awscli
 
 echo "Installing Terraform.."
 curl ${TFLINK} -s -o "terraform${TFVERS}.zip"
-unzip terraform${TFVERS}.zip
-mv terraform /usr/local/bin
+unzip terraform${TFVERS}.zip -d /usr/local/bin/
 rm -rf terraform${TFVERS}.zip
 
 echo "Installing Terraform enterprise cli.."
@@ -54,13 +53,13 @@ alias tf=tformat
 tapprove() {
   terraform apply -auto-approve
 }
-taa=tapprove
+alias taa=tapprove
 
 ########## Terraform destroy auto
 tdestroy() {
   terraform destroy -auto-approve
 }
-tda=tdestroy
+alias tda=tdestroy
 EOF
 
 #execute changes asap without a reload
@@ -68,3 +67,6 @@ source ~/.bash_profile
 
 #Clean up and clear out cache of yum repository
 yum clean all
+
+#Done
+echo "End of script -- setup complete :) "

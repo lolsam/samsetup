@@ -1,18 +1,22 @@
-### samsetup.sh 
+### samsetup.sh
 
 Shell script in this repo sets up an empty (linux) server according to my preferences.
 
-#### Packages installed: 
+#### Packages installed:
 - unzip
 - jq
 - curl
 - vim
 - git
 - python
-- awscli 
+- awscli
 - terraform
-- terraform enterpise 
+- terraform enterpise
 
 #### Aliases:  
-- github 
-- terraform 
+- github
+- terraform
+
+#### How to call this script
+On any linux distribution:
+wget -O - https://raw.githubusercontent.com/lolsam/samsetup/master/samsetup.sh | bash -x
