@@ -68,5 +68,8 @@ source ~/.bash_profile
 #Clean up and clear out cache of yum repository
 yum clean all
 
+#If wanting to install AWS CodeDeploy, uncomment the line below
+#wget -O - https://raw.githubusercontent.com/lolsam/samsetup/master/install-codedeploy.sh | bash -x
+
 #Done
 echo "End of script -- setup complete :) "
