@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Delivery') {
             steps {
-                withAWS(credentials: 'samtest', region: 'us-gov-west-1') {
+                withAWS(credentials: 'vaqa-jenkins', region: 'us-gov-west-1') {
                     sh 'echo "test">test.txt'
-                    s3Upload(bucket:"ensvaqacicd", path:'wars-v1/', includePathPattern:'**/*')
+                    s3Upload(file: 'text.txt', bucket:"ensvaqacicd", path:'wars-v1/', includePathPattern:'**/*')
                 }
             }
         }
