@@ -68,7 +68,7 @@ export PS1="\[$(tput bold)\]\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\
 EOF
 
 #execute changes asap without a reload
-source ~/.bash_profile || { echo 'Setting up .bashrc failed' ; exit 1; }
+source ~/.bash_profile || { echo 'Setting up .bash_profile failed' ; exit 1; }
 
 #allow password-less login if it's a lab server 
 if [ "$(hostname -d)" == "mylabserver.com" ]; then echo "%cloud_user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/10-ops; fi
