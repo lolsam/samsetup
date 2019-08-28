@@ -61,12 +61,17 @@ tdestroy() {
 }
 alias tda=tdestroy
 
+alias c=clear
+
 export PS1="\[$(tput bold)\]\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;51m\]\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;10m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 EOF
 
 #execute changes asap without a reload
-source ~/.bash_profile
+source ~/.bash_profile || { echo 'Setting up .bashrc failed' ; exit 1; }
+
+#allow password-less login if it's a lab server 
+if [ "$(hostname -d)" == "mylabserver.com" ]; then echo "%cloud_user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/10-ops; fi
 
 #Clean up and clear out cache of yum repository
 yum clean all
