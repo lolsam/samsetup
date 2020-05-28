@@ -21,12 +21,6 @@ curl ${TFLINK} -s -o "terraform${TFVERS}.zip"
 unzip terraform${TFVERS}.zip -d /usr/local/bin/
 rm -rf terraform${TFVERS}.zip
 
-echo "Installing Terraform enterprise cli.."
-git clone https://github.com/hashicorp/tfe-cli.git
-cd tfe-cli/bin
-echo "export PATH=$PWD:\$PATH" >> ~/.bash_profile
-ln -s $PWD/tfe /usr/local/bin/tfe
-
 #setup aliases for github and terraform commands to save my typing energy
 echo "Setup GitHub and Terraform shortcuts.."
 cat <<EOF > ~/.bash_profile
