@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-TFLINK=https://releases.hashicorp.com/terraform/0.12.1/terraform_0.12.1_linux_amd64.zip
+TFLINK=https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
 TFVERS=12
 
 #root only!
