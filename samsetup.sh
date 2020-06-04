@@ -14,7 +14,11 @@ fi
 echo "Installing basic/necessary packages.."
 yum update -y
 yum install -y unzip jq curl vim git python pip3
-pip install --upgrade awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+echo "Installing AWS CLI (V2)"
+unzip awscliv2.zip
+sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
 
 echo "Installing Terraform.."
 curl ${TFLINK} -s -o "terraform${TFVERS}.zip"
