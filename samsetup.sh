@@ -14,16 +14,23 @@ fi
 echo "Installing basic/necessary packages.."
 yum update -y
 yum install -y unzip jq curl vim git python pip3
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
 echo "Installing AWS CLI (V2)"
-unzip awscliv2.zip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo unzip awscliv2.zip
 sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
+rm -rf awscliv2.zip 
 
 echo "Installing Terraform.."
 curl ${TFLINK} -s -o "terraform${TFVERS}.zip"
 unzip terraform${TFVERS}.zip -d /usr/local/bin/
 rm -rf terraform${TFVERS}.zip
+
+echo "Installing Packer.." 
+curl "https://releases.hashicorp.com/packer/1.5.6/packer_1.5.6_linux_amd64.zip" -o "packer.zip" 
+sudo unzip packer.zip 
+sudo mv packer /usr/local/bin
+rm -rf packer.zip
 
 #setup aliases for github and terraform commands to save my typing energy
 echo "Setup GitHub and Terraform shortcuts.."
