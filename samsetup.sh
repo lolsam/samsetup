@@ -23,13 +23,12 @@ rm -rf awscliv2.zip
 
 echo "Installing Terraform.."
 curl ${TFLINK} -s -o "terraform${TFVERS}.zip"
-unzip terraform${TFVERS}.zip -d /usr/local/bin/
+sudo unzip terraform${TFVERS}.zip -d /usr/local/bin/
 rm -rf terraform${TFVERS}.zip
 
 echo "Installing Packer.." 
 curl "https://releases.hashicorp.com/packer/1.5.6/packer_1.5.6_linux_amd64.zip" -o "packer.zip" 
-sudo unzip packer.zip 
-sudo mv packer /usr/local/bin
+sudo unzip packer.zip -d /usr/local/bin
 rm -rf packer.zip
 
 #setup aliases for github and terraform commands to save my typing energy
